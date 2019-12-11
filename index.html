@@ -10,8 +10,10 @@
 <body>
     <div id="wrap">
         <nav>
-            <button id="">1px</button>
-            <button value="#000"></button>
+            <ul>
+                <li><button >1px</button></li>
+                <li><button class="color-picker" value="#000"></button></li>
+            </ul>
         </nav>
         <div class="canvas-wrap">
             <canvas class="canvas"></canvas>
@@ -19,6 +21,23 @@
     </div>
 </body>
 <script>
-    document.getElementsByClassName("canvas").getContext("2d");
+const App = {
+    init() {
+        App.evtHandler();
+    },
+    evtHandler() {
+        // Color picker eventListener
+        document.querySelector(".color-picker").addEventListener('click', (e) => {
+            console.log(e);
+            App.colorPicker();
+        });
+    },
+    colorPicker() {
+
+    }
+}
+
+App.init();
+
 </script>
 </html>
