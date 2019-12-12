@@ -3,18 +3,21 @@ ul, li {list-style: none;}
 html, body {width: 100%;height: 100%;overflow: hidden;}
 #wrap {width: 100%;height: 100%;background: #d9d9d9;text-align: center;}
 
+button[value="#000"] {background: #000;border-radius: 50%;}
+button[value="#FF0000"] {background: #FF0000;}
+button[value="#FF7F00"] {background: #FF7F00;}
+button[value="#FFFF00"] {background: #FFFF00;}
+button[value="#00FF00"] {background: #00FF00;}
+button[value="#0000FF"] {background: #0000FF;}
+button[value="#4B0082"] {background: #4B0082;}
+.undo, .redo {background: url(../img/undo_redo_icon.png) no-repeat;background-size: cover;}
+.undo {background-position: -32px;}
+#pixel-active {border: 3px solid black;}
+
 /* nav {width: 30%;height: 10px;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);} */
-nav {width: 30%;height: 70px;line-height: 70px;text-align: center;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);border: 1px solid black;}
+nav {height: 70px;line-height: 70px;text-align: center;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);border: 1px solid black;}
 nav:hover {height: 70px;line-height: 70px;transition: all 0.3s;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
-nav ul li{width: 50px;height: 50px;line-height: 50px;display: inline-block;vertical-align: middle;}
+nav ul li {width: 60px;display: inline-block;}
+nav ul li button {width: 30px;height: 30px;border: none;vertical-align: middle;}
 .canvas-wrap {width: 100%;height: 100%;margin: 0 auto;}
 .canvas-wrap .canvas {width: 95%;height: 95%;background: #fff;margin: 10px;box-shadow: 0 14px 28px rgba(0,0,0,0.25);}
-button {height: 25px;border: none;}
-button[value="#000"] {width: 30px;height: 30px;background: #000;border-radius: 50%;}
-button[value="#FF0000"] {width: 25px;background: #FF0000;}
-button[value="#FF7F00"] {width: 25px;background: #FF7F00;}
-button[value="#FFFF00"] {width: 25px;background: #FFFF00;}
-button[value="#00FF00"] {width: 25px;background: #00FF00;}
-button[value="#0000FF"] {width: 25px;background: #0000FF;}
-button[value="#4B0082"] {width: 25px;background: #4B0082;}
-#pixel-active {border: 3px solid black;}

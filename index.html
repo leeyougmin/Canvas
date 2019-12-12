@@ -13,6 +13,8 @@
             <ul>
                 <li><button >1px</button></li>
                 <li><button class="color-picker" value="#000"></button></li>
+                <li><button class="redo"></button></li>
+                <li><button class="undo"></button></li>
             </ul>
         </nav>
         <div class="canvas-wrap">
@@ -26,14 +28,14 @@ const App = {
         App.evtHandler();
     },
     evtHandler() {
-        // Color picker eventListener
+        // Color picker evt
         document.querySelector(".color-picker").addEventListener('click', (e) => {
             console.log(e);
             App.colorPicker();
         });
     },
     colorPicker() {
-
+        alert(123)
     }
 }
 
