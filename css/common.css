@@ -14,8 +14,7 @@ button[value="#4B0082"] {background: #4B0082;}
 .undo {background-position: -32px;}
 #pixel-active {border: 3px solid black;}
 
-/* nav {width: 30%;height: 10px;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);} */
-nav {height: 70px;line-height: 70px;text-align: center;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);border: 1px solid black;}
+nav {height: 10px;line-height: 70px;text-align: center;background: #fff;border-top-right-radius: 10px;border-top-left-radius: 10px;position: absolute;bottom: 0%;left: 50%;transform: translate(-50%, 0%);border: 1px solid black;}
 nav:hover {height: 70px;line-height: 70px;transition: all 0.3s;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 nav ul li {width: 60px;display: inline-block;}
 nav ul li button {width: 30px;height: 30px;border: none;vertical-align: middle;}
