@@ -11,8 +11,21 @@
     <div id="wrap">
         <nav>
             <ul>
-                <li><button >1px</button></li>
-                <li><button class="color-picker" value="#000"></button></li>
+                <li><button>1px</button></li>
+                <li>
+                    <div class="picker-wrap">
+                        <button class="color-picker-btn" value="#000"></button>
+                        <div class="color-picker">
+                            <button value="#000"></button>
+                            <button value="#FF0000"></button>
+                            <button value="#FF7F00"></button>
+                            <button value="#FFFF00"></button>
+                            <button value="#00FF00"></button>
+                            <button value="#0000FF"></button>
+                            <button value="#4B0082"></button>
+                        </div>
+                    </div>
+                </li>
                 <li><button class="redo"></button></li>
                 <li><button class="undo"></button></li>
             </ul>
@@ -23,23 +36,34 @@
     </div>
 </body>
 <script>
-const App = {
+class App {
+    constructor() {
+        this.init();
+    }
     init() {
-        App.evtHandler();
-    },
+        this.evtHandler();
+    }
     evtHandler() {
-        // Color picker evt
-        document.querySelector(".color-picker").addEventListener('click', (e) => {
-            console.log(e);
-            App.colorPicker();
+        // Show Color picker wrap evt
+        document.querySelector(".color-picker-btn").addEventListener('click', this.colorPicker.bind(this));
+        
+        // Change Color evt
+        document.querySelectorAll(".color-picker > button").forEach((v) => {
+            v.addEventListener('click', this.changeColor.bind(this));  
         });
-    },
-    colorPicker() {
-        alert(123)
+    }
+    // Show Color Picker box
+    colorPicker(e) {
+        document.querySelector(".color-picker").style.display = "flex";
+    }
+    // change color
+    changeColor(e) {
+        document.querySelector(".color-picker-btn").value = e.target.value;
     }
 }
 
-App.init();
+const app = new App();
+
 
 </script>
 </html>
