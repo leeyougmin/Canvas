@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Canvas</title>
     <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/App.js"></script>
 </head>
 <body>
     <div id="wrap">
@@ -35,45 +36,4 @@
         </div>
     </div>
 </body>
-<script>
-class App {
-    constructor() {
-        this.init();
-    }
-    init() {
-        this.evtHandler();
-        this.setCanvas();
-    }
-    evtHandler() {
-        // Show Color picker wrap evt
-        document.querySelector(".color-picker-btn").addEventListener("click", (e) => {
-            document.querySelector(".color-picker").style.display = "flex";
-        }, "mouseleave", (e) => {
-            console.log(e)
-            document.querySelector(".color-picker").style.display = "none";
-        });
-        
-        // Change Color evt
-        document.querySelectorAll(".color-picker > button").forEach((v) => {
-            v.addEventListener("click", this.changeColor.bind(this));  
-        });
-    }
-    // Change color
-    changeColor(e) {
-        document.querySelector(".color-picker-btn").value = e.target.value;
-        this.setCanvas(e.target.value);
-    }
-    // Canvas
-    setCanvas(color) {
-        const canvas = document.querySelector(".canvas");
-        const ctx = canvas.getContext("2d");
-
-        ctx.fillStyle = color; // Set Color
-    }
-}
-
-const app = new App();
-
-
-</script>
 </html>
