@@ -2,10 +2,10 @@ class App {
 	constructor() {
 		this.canvas = document.querySelector(".canvas");
 		this.ctx = this.canvas.getContext("2d");
-		this.pos = {
-			x : 0,
-			y : 0
-		}
+		this.pos = { 
+			x : 0
+			, y : 0
+		};
 		this.init();
 	}
 	init() {
