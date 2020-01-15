@@ -1,6 +1,7 @@
 class App {
 	constructor() {
-		this.canvas = document.querySelector(".canvas");
+    this.canvas = document.querySelector(".canvas");
+    this.cRect = this.canvas.getBoundingClientRect();
 		this.ctx = this.canvas.getContext("2d");
 		this.pos = { 
 			x : 0
@@ -9,8 +10,8 @@ class App {
 		this.init();
 	}
 	init() {
-		this.evtHandler();
 		this.setCanvas();
+		this.evtHandler();
 	}
 	evtHandler() {
 		// show Color picker
@@ -26,9 +27,9 @@ class App {
 				v.addEventListener("click", this.changeColor.bind(this));  
 		});
 		// set postion
-		document.querySelector(".canvas").addEventListener("mousedown", this.setPos.bind(this));
+		this.canvas.addEventListener("mousedown", this.setPos.bind(this));
 		// draw evt
-		document.querySelector(".canvas").addEventListener("mousemove", this.draw.bind(this));
+		this.canvas.addEventListener("mousemove", this.draw.bind(this));
 	}
 	// Change color
 	changeColor(e) {
@@ -36,26 +37,27 @@ class App {
 		this.setCanvas(e.target.dataset.color);
 	}
 	// set Position
-	setPos(e) {
-		this.pos.x = e.pageX - this.canvas.offsetLeft;
-		this.pos.y = e.pageY - this.canvas.offsetTop;
+	setPos(e) {   
+    this.pos.x = Math.round(e.clientX) - this.cRect.left;
+		this.pos.y = Math.round(e.clientY) - this.cRect.top;
 	}
 	// Canvas
 	setCanvas(color) {
-		this.ctx.fillStyle = color; // Set Color
-		this.ctx.lineCap = "round";
+    this.ctx.fillStyle = color; // Set Color
+    this.ctx.lineWidth = 1;
+    this.ctx.lineCap = "round";
 	}
 	// Draw
 	draw(e) {
 		if (e.buttons !== 1) return;
 		this.ctx.beginPath();
-		this.ctx.moveTo(this.pos.x, this.pos.y);
+    this.ctx.moveTo(this.pos.x, this.pos.y);
 		this.setPos(e)
 		this.ctx.lineTo(this.pos.x, this.pos.y);
 		this.ctx.stroke();
 	}
 }
 
-window.onload = (e) => {
+window.onload = () => {
 	const app = new App();
 }
