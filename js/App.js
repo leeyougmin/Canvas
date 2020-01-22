@@ -1,12 +1,9 @@
 class App {
 	constructor() {
-    this.canvas = document.querySelector(".canvas");
-    this.cRect = this.canvas.getBoundingClientRect();
+		this.canvas = document.querySelector(".canvas");
 		this.ctx = this.canvas.getContext("2d");
-		this.pos = { 
-			x : 0
-			, y : 0
-		};
+		this.cRect = this.canvas.getBoundingClientRect();
+		this.pos = {x: 0, y: 0};
 		this.init();
 	}
 	init() {
@@ -24,10 +21,10 @@ class App {
 		});
 		// Change Color evt
 		document.querySelectorAll(".color-picker > button").forEach((v) => {
-				v.addEventListener("click", this.changeColor.bind(this));  
+			v.addEventListener("click", this.changeColor.bind(this));
 		});
 		// set postion
-		this.canvas.addEventListener("mousedown", this.setPos.bind(this));
+		this.canvas.addEventListener("mousedown", this.startDraw.bind(this));
 		// draw evt
 		this.canvas.addEventListener("mousemove", this.draw.bind(this));
 	}
@@ -37,23 +34,30 @@ class App {
 		this.setCanvas(e.target.dataset.color);
 	}
 	// set Position
-	setPos(e) {   
-    this.pos.x = Math.round(e.clientX) - this.cRect.left;
-		this.pos.y = Math.round(e.clientY) - this.cRect.top;
+	setPos(e) {
+		this.pos.x = Math.round(e.pageX) - this.cRect.left;
+		this.pos.y = Math.round(e.pageY) - this.cRect.top;
 	}
 	// Canvas
 	setCanvas(color) {
-    this.ctx.fillStyle = color; // Set Color
-    this.ctx.lineWidth = 1;
-    this.ctx.lineCap = "round";
+		this.ctx.fillStyle = color; // Set Color
+		this.ctx.lineWidth = 5;
+		this.ctx.lineCap = "round";
+		this.ctx.lineJoin = "round";
 	}
-	// Draw
+	// start draw
+	startDraw(e) {
+		this.setPos(e);
+		this.ctx.beginPath();
+		this.ctx.moveTo(this.pos.x, this.pos.y);
+		console.log(this.pos.x, this.pos.y);
+	}
+	// draw
 	draw(e) {
 		if (e.buttons !== 1) return;
-		this.ctx.beginPath();
-    this.ctx.moveTo(this.pos.x, this.pos.y);
-		this.setPos(e)
+		this.setPos(e);
 		this.ctx.lineTo(this.pos.x, this.pos.y);
+		console.log(this.pos.x, this.pos.y);
 		this.ctx.stroke();
 	}
 }
